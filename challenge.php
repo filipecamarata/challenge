@@ -4,7 +4,7 @@ function calcularPontos (){
     $pontosFuturos = array(
         'Real Madrid' => 30,
         'Barcelona' => 25,
-        'Atletico de Madrid' => 20,
+        'Atletico de Madrid' => 24,
         'Valencia' => 18,
         'Girona' => 15,
 

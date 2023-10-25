@@ -1,52 +1,28 @@
 <?php
+$clubes = ["Real Madrid", "Barcelona", "Atletico", "Girona", "Valencia"];
 
 
-function calcularPontos (){
-    
-    
-    $pontosFuturos = array(
-        'Real Madrid' => 20,
-        'Barcelona' => 17,
-        'Atletico de Madrid' => 18,
-        'Valencia' => 13,
-        'Girona' => 12,
-           );
+function actualizar_pontos($clubes){
+    $pontos_iniciais = [30, 21, 20, 16, 15];
 
-if($pontosFuturos['Real Madrid'] % 2 == 0){
-    $pontosFuturos['Real Madrid'] +=3;
-}
+    for($i= 0; $i < count($clubes); $i++){
+        if($pontos_iniciais[$i] % 2 == 0){
+            $pontos_iniciais[$i] +=3;
+        }
+    }
 
-if($pontosFuturos['Barcelona'] % 2 == 0){
-    $pontosFuturos['Barcelona'] +=3;
-}
 
-if($pontosFuturos['Atletico de Madrid'] % 2 == 0){
-    $pontosFuturos['Atletico de Madrid'] +=3;
-}
+$clubes_pontos = array_combine($clubes, $pontos_iniciais);
 
-if($pontosFuturos['Valencia'] % 2 == 0){
-    $pontosFuturos['Valencia'] +=3;
-}
+arsort($clubes_pontos);
+return $clubes_pontos;
 
-if($pontosFuturos['Girona'] % 2 == 0){
-    $pontosFuturos['Girona'] +=3;
-}
+} 
 
-foreach($pontosFuturos as $clube => $pontos){
-    $pontosFuturos[$clube] = $pontos;
-}
 
-arsort($pontosFuturos);
-return $pontosFuturos;
+$clubes_pontos_actual = actualizar_pontos($clubes);
+
+foreach ($clubes_pontos_actual as $clube => $pontos ){
+    echo $clube . ": " . $pontos . " pts<br>";
 
 }
-
-$pontosFuturos = calcularPontos();
-
-
-
-foreach($pontosFuturos as $clube => $pontos){
-  
-       echo $clube . ": " . $pontos . " pts<br>";
-
- }

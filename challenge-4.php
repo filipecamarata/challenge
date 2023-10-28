@@ -1,76 +1,39 @@
 <?php
+$L = 3;
+$a = 5;
+$b = 22;
+$c = 2;
 
-$L = $_GET["valorL"];
+function ordenarCrescente($a, $b, $c){
+    $valores = [$a, $b, $c];
+    sort($valores);
+    return $valores;
+}
 
-$a = 19;
-$b = 14.6;
-$c = 6;
+function ordenarDecrescente($a, $b, $c){
+    $valores = [$a, $b, $c];
+    rsort($valores);
+    return $valores;
+}
+
+
+function maiorMeio($a, $b, $c){
+    $maior = max($a, $b, $c);
+    $menor = min($a, $b, $c);
+    $medio = ($a + $b + $c) - ($maior + $menor);
+    return [$menor, $maior, $medio];
+}
+
 
 if($L == 1){
-    if($a > $b && $a > $c && $b > $c){
-        echo $c . "<br>" . $b . "<br>" . $a;
-
-    }elseif ($a > $b && $a > $c && $c > $b){
-        echo $b . "<br>" . $c . "<br>" . $a;
-    
-    }else if ( $b > $a && $b > $c && $a > $c){
-        echo $c . "<br>" . $a . "<br>" . $b;
-        
-    } else if ( $b > $a && $b > $c && $c > $a){
-        echo $a . "<br>" . $c . "<br>" . $b;
-       
-    }else if ( $c > $a && $c > $b && $b > $a){
-        echo $a . "<br>" . $b . "<br>" . $c;
-           
-    } else if ( $c > $a && $c > $b && $a > $b){
-        echo $b . "<br>" . $a . "<br>" . $c;
-        
-    }
+    [$a, $b, $c] = ordenarCrescente($a, $b, $c);
+    echo "Valores em ordem crescente: $a, $b, $c";
+}elseif($L == 2){
+    [$a, $b, $c] = ordenarDecrescente($a, $b, $c);
+    echo "Valores em ordem decrescente: $a, $b, $c";
+}elseif($L == 3){
+    [$a, $b, $c] = maiorMeio($a, $b, $c);
+    echo "O maior valor esta no meio: $a, $b, $c";
+}else{
+    echo "Valor iválido para L";
 }
-
-if ($L == 2){
-    if ($a < $b && $a < $c && $b < $c){
-        echo $c . "<br>" . $b . "<br>" . $a;
-        
-    }else if ($a < $b && $a < $c && $c < $b){
-        echo $b . "<br>" . $c . "<br>" . $a;
-      
-    }else if ( $b < $a && $b < $c && $a < $c){
-        echo $c . "<br>" . $a . "<br>" . $b;
-       
-    }else if ( $b < $a && $b < $c && $c < $a){
-        echo $a . "<br>" . $c . "<br>" . $b;
-        
-    }else if ( $c < $a && $c < $b && $b < $a){
-        echo $a . "<br>" . $b . "<br>" . $c;
-        
-    }else if ( $c < $a && $c < $b && $a < $b){
-        echo $b . "<br>" . $a . "<br>" . $c;
-        
-    }
-}
-
-if ($L == 3){
-    if ($a < $b && $a < $c && $b < $c){
-        echo $b . "<br>" . $c . "<br>" . $a;
-      
-    }else if ($a < $b && $a < $c && $c < $b){
-        echo $c . "<br>" . $b . "<br>" . $a;
-       
-    }else if ( $b < $a && $b < $c && $a < $c){
-        echo $a . "<br>" . $c . "<br>" . $b;
-        
-    }else if ( $b < $a && $b < $c && $c < $a){
-        echo $c . "<br>" . $a . "<br>" . $b;
-       
-    }else if ( $c < $a && $c < $b && $b < $a){
-        echo $b . "<br>" . $a . "<br>" . $c;
-       
-    } else if ( $c < $a && $c < $b && $a < $b){
-        echo $a . "<br>" . $b . "<br>" . $c;
-        
-    }
-    return 0;
-}
-
-
